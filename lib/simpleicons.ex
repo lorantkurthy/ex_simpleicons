@@ -8,7 +8,7 @@ defmodule Simpleicons do
 
       def deps do
         [
-          {:ex_simpleicons, "~> 1.0.0"},
+          {:ex_simpleicons, "~> 0.2.0"},
           {:simpleicons,
             github: "simple-icons/simple-icons",
             tag: "14.14.0",
@@ -81,6 +81,7 @@ defmodule Simpleicons do
 
   attr :name, :string, values: @names, required: true, doc: "the name of the icon"
   attr :class, :string, default: nil, doc: "the css classes to add to the svg container"
+  attr :stroke_width, :string, default: "1.0", doc: "svg stroke-width"
   attr :rest, :global, doc: "the arbitrary HTML attributes to add to the svg container"
 
   def icon(assigns) do
@@ -93,13 +94,14 @@ defmodule Simpleicons do
 
     ~H"""
     <!-- simpleicons-<%= @name %> -->
-    <.svg_container class={@class}  viewbox={svg_viewbox(@name)} {@rest}>
+    <.svg_container class={@class}  viewbox={svg_viewbox(@name)} stroke_width={@stroke_width} {@rest}>
       <%= {:safe, svg_body(@name)} %>
     </.svg_container>
     """
   end
 
   attr :class, :string, default: nil, doc: "the css classes to add to the svg container"
+  attr :stroke_width, :string, default: "1.0", doc: "svg stroke-width"
   attr :rest, :global, doc: "the arbitrary HTML attributes to add to the svg container"
   attr :viewbox, :string, default: "0 0 24 24", doc: "the viewbox for the svg container"
 
@@ -111,7 +113,7 @@ defmodule Simpleicons do
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox={@viewbox}
-      stroke-width="1.5"
+      stroke-width={@stroke_width}
       stroke="currentColor"
       aria-hidden="true"
       data-slot="icon"
