@@ -8,7 +8,7 @@ defmodule Simpleicons do
 
       def deps do
         [
-          {:ex_simpleicons, "~> 0.2.0"},
+          {:ex_simpleicons, "~> 0.3.0"},
           {:simpleicons,
             github: "simple-icons/simple-icons",
             tag: "14.14.0",
@@ -23,7 +23,7 @@ defmodule Simpleicons do
 
   ## Usage
 
-      <Simpleicons.icon name="academic-cap" class="h-4 w-4" />
+      <Simpleicons.icon name="github" class="simpleicon" />
 
   ## Config
 

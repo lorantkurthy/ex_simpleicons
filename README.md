@@ -10,7 +10,7 @@ Add `ex_simpleicons` and `simpleicons` to the list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ex_simpleicons, "~> 0.2.0"},
+    {:ex_simpleicons, "~> 0.3.0"},
     {:simpleicons,
        github: "simple-icons/simple-icons",
        tag: "14.14.0",
